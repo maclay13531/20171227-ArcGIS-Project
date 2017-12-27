@@ -1,0 +1,18 @@
+html, body, #base-view-map{
+	padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    float: right;
+}
+
+#layerToggle{
+	top: 300px;
+	right: 20px;
+	position: absolute;
+	z-index: 99;
+	background-color: white;
+	border-radius: 10px;
+	padding: 10px;
+	opacity: 0.5;
+}
