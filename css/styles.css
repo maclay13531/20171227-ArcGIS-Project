@@ -7,12 +7,44 @@ html, body, #base-view-map{
 }
 
 #layerToggle{
-	top: 300px;
+	top: 550px;
 	right: 20px;
 	position: absolute;
 	z-index: 99;
 	background-color: white;
 	border-radius: 10px;
-	padding: 10px;
+	padding: 5px;
 	opacity: 0.5;
+}
+
+#city-icon{
+	top: 550px;
+	left: 20px;
+	position: absolute;
+	z-index: 99;
+	background-color: white;
+	border-radius: 10px;
+	padding: 5px;
+	opacity: 0.5;
+	display: inherit;
+}
+
+.circle{
+	height: 15px;
+	width: 15px;
+	border-radius: 50%;
+	background: blue;
+
+}
+
+#city-description{
+	top: 580px;
+	left: 20px;
+	position: absolute;
+	z-index: 99;
+	background-color: white;
+	border-radius: 10px;
+	opacity: 0.5;
+	display: inherit;
+	height: 40px;
 }
