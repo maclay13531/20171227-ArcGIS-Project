@@ -9,13 +9,13 @@ require([
     "dojo/on",   // require dojo/on for listening to events on the DOM
 	"dojo/domReady!"
 ], function(Map, MapView, Home, Search, TileLayer, FeatureLayer, dom, on){
-	// set up a basemap
+	// set up a basemap ------------------------------------------------------- step 1
  	var map = new Map({
  		// https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html  <-- choose the most appropriate basemap for project
     	basemap: "gray",
     	ground: "world-elevation"
   	});
- 	// MapView for 2D & SceneView for 3D
+ 	// MapView for 2D & SceneView for 3D -------------------------------------- step 2
   	var view = new MapView({
     	container: "base-view-map",  
     	map: map,
@@ -24,13 +24,13 @@ require([
     	// first value = long & second value = lat
     	center: [-98, 37]
   	});
-  	// create home button and add to view
+  	// create home button and add to view. ------------------------------------ added feature for ux
   	var homeBtn = new Home({
     	view: view
     });
 
     view.ui.add(homeBtn, "top-left");
-    // create search bar and add to view
+    // create search bar and add to view  ------------------------------------- added feature for ux
     var searchWidget = new Search({
         view: view
     });
@@ -38,7 +38,7 @@ require([
     view.ui.add(searchWidget,{
         position: "top-right"
     });
-  	// TileLayer creates layer(s) that will be displayed on the map
+  	// TileLayer creates layer(s) that will be displayed on the map. ---------- step 3
   	// url property is a must property
   	// extra properties can be added as needed (id, minScale, maxScale, opacity, and visible)
   	var springTornadoLyr = new TileLayer({
@@ -65,13 +65,13 @@ require([
     	url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/Storm_Warnings_and_Advisories_from_2002-2011/MapServer",
     	visible: false
     });
-    // add layer(s) to the basemap
+    // add layer(s) to the basemap -------------------------------------------- step 4
   	map.add(springTornadoLyr);
   	map.add(summerTornadoLyr);
   	map.add(fallTornadoLyr);
   	map.add(winterTornadoLyr);
   	map.add(stormLyr);
-  	// set up a toggle function
+  	// set up a toggle function ----------------------------------------------- step 5
   	var springLayerToggle = dom.byId("spring-layer");
   	on(springLayerToggle, "change", function(){
 		springTornadoLyr.visible = springLayerToggle.checked;
@@ -91,7 +91,11 @@ require([
   	on(winterLayerToggle, "change", function(){
 		winterTornadoLyr.visible = winterLayerToggle.checked;
     });
-    // add popup template
+    var stormLayerToggle = dom.byId("storm-layer");
+  	on(stormLayerToggle, "change", function(){
+		stormLyr.visible = stormLayerToggle.checked;
+    });
+    // add popup template  ----------------------------------------------------- step 6b
 	var template = {
   		title: "CITY NAME: {NAME}",
   		content: "<ul><li>LAND AREA: {AREALAND}</li>" +
@@ -120,12 +124,7 @@ require([
           }
         }]
 	};
-
-    var stormLayerToggle = dom.byId("storm-layer");
-  	on(stormLayerToggle, "change", function(){
-		stormLyr.visible = stormLayerToggle.checked;
-    });
-  	// create feature layer
+  	// create feature layer ----------------------------------------------------- step 6a
 	var usMajorCityLayer = new FeatureLayer({
 		url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/Enriched%20USA%20Major%20Cities/FeatureServer/0",
 		outFields: ["*"],
@@ -134,12 +133,3 @@ require([
 	// add feature layer(s) to the basemap
 	map.add(usMajorCityLayer);
 });
-
-
-
-
-
-
-
-
-
