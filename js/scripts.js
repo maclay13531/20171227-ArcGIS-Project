@@ -1,16 +1,19 @@
 require([
 	"esri/Map", 
 	"esri/views/MapView", // change the MapeView to SceneView if 3D view is needed
+	"esri/widgets/Home", // add home button
+	"esri/widgets/Search", // add search bar
 	"esri/layers/TileLayer", // to add layer(s)
 	"esri/layers/FeatureLayer", // to add feature layer(s)
 	"dojo/dom",  // require dojo/dom for getting the DOM element
     "dojo/on",   // require dojo/on for listening to events on the DOM
 	"dojo/domReady!"
-], function(Map, MapView,TileLayer, FeatureLayer, dom, on){
+], function(Map, MapView, Home, Search, TileLayer, FeatureLayer, dom, on){
 	// set up a basemap
  	var map = new Map({
  		// https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html  <-- choose the most appropriate basemap for project
-    	basemap: "gray"
+    	basemap: "gray",
+    	ground: "world-elevation"
   	});
  	// MapView for 2D & SceneView for 3D
   	var view = new MapView({
@@ -21,6 +24,20 @@ require([
     	// first value = long & second value = lat
     	center: [-98, 37]
   	});
+  	// create home button and add to view
+  	var homeBtn = new Home({
+    	view: view
+    });
+
+    view.ui.add(homeBtn, "top-left");
+    // create search bar and add to view
+    var searchWidget = new Search({
+        view: view
+    });
+
+    view.ui.add(searchWidget,{
+        position: "top-right"
+    });
   	// TileLayer creates layer(s) that will be displayed on the map
   	// url property is a must property
   	// extra properties can be added as needed (id, minScale, maxScale, opacity, and visible)

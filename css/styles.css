@@ -18,13 +18,13 @@ html, body, #base-view-map{
 }
 
 #city-icon{
-	top: 550px;
+	top: 530px;
 	left: 20px;
 	position: absolute;
 	z-index: 99;
 	background-color: white;
 	border-radius: 10px;
-	opacity: 0.5;
+	opacity: 0.9;
 	display: inherit;
 }
 
@@ -32,7 +32,7 @@ html, body, #base-view-map{
 	height: 15px;
 	width: 15px;
 	border-radius: 50%;
-	background: blue;
+	background: steelblue;
 
 }
 
@@ -43,19 +43,39 @@ html, body, #base-view-map{
 	z-index: 99;
 	background-color: white;
 	border-radius: 10px;
-	opacity: 0.5;
+	opacity: 0.9;
 	display: inherit;
-	height: 40px;
 }
 
 #city-description-two{
-	top: 630px;
+	top: 610px;
 	left: 20px;
 	position: absolute;
 	z-index: 99;
 	background-color: white;
 	border-radius: 10px;
-	opacity: 0.5;
+	opacity: 0.9;
 	display: inherit;
-	height: 40px;
+}
+
+#city-description-three{
+	top: 640px;
+	left: 20px;
+	position: absolute;
+	z-index: 99;
+	background-color: white;
+	border-radius: 10px;
+	opacity: 0.9;
+	display: inherit;
+}
+
+#city-description-four{
+	top: 670px;
+	left: 20px;
+	position: absolute;
+	z-index: 99;
+	background-color: white;
+	border-radius: 10px;
+	opacity: 0.9;
+	display: inherit;
 }
