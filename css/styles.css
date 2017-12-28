@@ -37,8 +37,20 @@ html, body, #base-view-map{
 
 }
 
-#city-description{
+#city-description-one{
 	top: 580px;
+	left: 20px;
+	position: absolute;
+	z-index: 99;
+	background-color: white;
+	border-radius: 10px;
+	opacity: 0.5;
+	display: inherit;
+	height: 40px;
+}
+
+#city-description-two{
+	top: 630px;
 	left: 20px;
 	position: absolute;
 	z-index: 99;

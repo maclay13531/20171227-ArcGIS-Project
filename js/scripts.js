@@ -6,7 +6,7 @@ require([
 	"dojo/dom",  // require dojo/dom for getting the DOM element
     "dojo/on",   // require dojo/on for listening to events on the DOM
 	"dojo/domReady!"
-], function(Map, MapView, TileLayer, FeatureLayer, Search, dom, on){
+], function(Map, MapView,TileLayer, FeatureLayer, dom, on){
 	// set up a basemap
  	var map = new Map({
  		// https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html  <-- choose the most appropriate basemap for project
